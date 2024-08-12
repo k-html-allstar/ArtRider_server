@@ -1,0 +1,55 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://rdsallstar.chqig4qoo893.ap-northeast-2.rds.amazonaws.com:5432/postgres
+    username: postgres
+    password: allstarmj0812
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100
+
+
+logging:
+  level:
+    root: INFO
+    xnova.velog: DEBUG
+
+kakao:
+  client-id: 37e0b5406c10aba79ef52825944573ae
+  client-secret: Fup1vXPdOXmw4qIKIPcvjqmld68buXTl
+  redirect-uri: http://43.203.126.112:8080/oauth/kakao/callback
+  url:
+    auth: https://kauth.kakao.com
+    api: https://kapi.kakao.com
+  provider:
+    authorization-uri: https://kauth.kakao.com/oauth/authorize
+    token-uri: https://kauth.kakao.com/oauth/token
+    user-info-uri: https://kapi.kakao.com/v2/user/me
+    user-name-attribute: kakao_account
+
+jwt:
+  secretKey: 7Jis7Iqk7YOA7LyA7J207JeQ7J207LmY7Yuw7Jeg7JeY7J207LKc7J207Iut7IKs64WE7YyU7JuU7ZmU7J207YyF7ZWp7Iuc64uk7JWE7J6Q7JWE7J6Q7KeE7Kec64SI66y07Ja066Ck7JuM7IK066Ck7KO87IS47JqU
+
+# Swagger 설정
+springdoc:
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+  writer-with-default-pretty-printer: true
+  api-docs:
+    groups:
+      enabled: true
+  swagger-ui:
+    path: /swagger
+    groups-order: DESC
+    tags-sorter: alpha
+    operations-sorter: method
+    disable-swagger-default-url: true
+    display-request-duration: true
+  paths-to-match:
+    - /**
