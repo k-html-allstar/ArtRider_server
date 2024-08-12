@@ -21,29 +21,14 @@ public class Member extends BaseEntity {
     private Long id;
 
     @Column
-    private String memberUUID;
-
-    @Column
     private String email;
 
     @Column
     private String nickname;
 
     @Column
-    private String velogId;
-
-    @Column
-    private String follow;
-
-    @Column
-    private String follower;
-
-    @Column
     @Enumerated(EnumType.STRING)
     private OAuthProvider oAuthProvider;
-
-    @Column
-    private String password;
 
     public enum OAuthProvider {
         KAKAO, NAVER
