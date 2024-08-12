@@ -23,7 +23,7 @@ logging:
 kakao:
   client-id: 37e0b5406c10aba79ef52825944573ae
   client-secret: Fup1vXPdOXmw4qIKIPcvjqmld68buXTl
-  redirect-uri: http://43.203.126.112:8080/oauth/kakao/callback
+  redirect-uri: http://3.39.249.239:8080/oauth/kakao/callback
   url:
     auth: https://kauth.kakao.com
     api: https://kapi.kakao.com
