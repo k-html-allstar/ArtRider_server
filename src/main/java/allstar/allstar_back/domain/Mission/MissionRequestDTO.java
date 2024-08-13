@@ -9,6 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 public class MissionRequestDTO {
-    private List<CoordinateDTO> coordinates;
+    private Double latitude;
+    private Double longitude;
     private String difficulty;
 }

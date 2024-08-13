@@ -17,10 +17,11 @@ public class AIService {
         this.restTemplate = restTemplate;
     }
 
-    public String processMissionData(List<Coordinate> coordinates, String difficulty) {
+    public String processMissionData(Double latitude, Double longitude, String difficulty) {
         // AI 서비스에 전달할 데이터 구조 정의
         Map<String, Object> aiRequestData = new HashMap<>();
-        aiRequestData.put("coordinates", coordinates);
+        aiRequestData.put("latitude", latitude);
+        aiRequestData.put("longitude", longitude);
         aiRequestData.put("difficulty", difficulty);
 
         // AI 서비스에 POST 요청 보내기

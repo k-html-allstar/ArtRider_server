@@ -27,7 +27,7 @@ public class MissionController {
             @ApiResponse(responseCode = "400", description = "잘못된 입력 값"),
             @ApiResponse(responseCode = "500", description = "서버 오류 발생")
     })
-    @GetMapping
+    @GetMapping("/image")
     public ApiResult<List<MissionDTO>> getAllBanners() {
         try {
             List<MissionDTO> banners = missionService.getAllMissions();
@@ -37,24 +37,21 @@ public class MissionController {
         }
     }
 
+    @Operation(summary = "현재 좌표배열과 난이도 정보를 처리하여 AI 서비스로 전달", description = "프론트로부터 좌표배열과 난이도 정보를 받아와 AI 서비스로 전달")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "성공적으로 조회됨"),
+            @ApiResponse(responseCode = "400", description = "잘못된 입력 값"),
+            @ApiResponse(responseCode = "500", description = "서버 오류 발생")
+    })
     @PostMapping("/start-mission")
     public ResponseEntity<?> startMission(@RequestBody MissionRequestDTO missionRequestdto) {
-        // 좌표 배열과 난이도 데이터 받기
-        List<CoordinateDTO> coordinateDTOs = missionRequestdto.getCoordinates();
+        // 프론트로부터 좌표 배열과 난이도 데이터 받기 (DTO에서 데이터 추출)
+        Double latitude = missionRequestdto.getLatitude();
+        Double longitude = missionRequestdto.getLongitude();
         String difficulty = missionRequestdto.getDifficulty();
 
-        // DTO를 엔티티로 변환
-        List<Coordinate> coordinates = MissionMapper.dtoListToEntityList(coordinateDTOs, null);
-
-        // AI 서비스로 데이터 전달
-        String aiResponse = aiService.processMissionData(coordinates, difficulty);
+        String aiResponse = aiService.processMissionData(latitude, longitude, difficulty);
 
         return ResponseEntity.ok(aiResponse);
     }
-
-
-
-
-
-
 }
