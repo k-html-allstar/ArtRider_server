@@ -1,6 +1,6 @@
 package allstar.allstar_back.domain.Mission;
 
-import allstar.allstar_back.Entity.MissionLevel;
+import allstar.allstar_back.Entity.Mission;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,13 +15,14 @@ public class MissionService {
     public List<MissionDTO> getAllMissions() {
         return missionRepository.findAll().stream().map(mission -> new MissionDTO(
                 mission.getId(),
+                mission.getMissionLevel(),
                 mission.getMissionTitle(),
                 mission.getS3url()
         )).collect(Collectors.toList());
     }
 
     public void saveMissionTitle(String missionTitle) {
-        MissionLevel mission = MissionLevel.builder()
+        Mission mission = Mission.builder()
                 .missionTitle(missionTitle)
                 .build();
 

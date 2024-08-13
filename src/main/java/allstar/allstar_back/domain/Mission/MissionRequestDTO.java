@@ -9,5 +9,5 @@ import lombok.Setter;
 public class MissionRequestDTO {
     private Double latitude;
     private Double longitude;
-    private String difficulty;
+    private String missionLevel;
 }

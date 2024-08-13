@@ -46,9 +46,9 @@ public class MissionController {
         // 프론트로부터 좌표 배열과 난이도 데이터 받기 (DTO에서 데이터 추출)
         Double latitude = missionRequestdto.getLatitude();
         Double longitude = missionRequestdto.getLongitude();
-        String difficulty = missionRequestdto.getDifficulty();
+        String missionLevel = missionRequestdto.getMissionLevel();
 
-        String aiResponse = aiService.processMissionData(latitude, longitude, difficulty);
+        String aiResponse = aiService.processMissionData(latitude, longitude, missionLevel);
 
         return ResponseEntity.ok(aiResponse);
     }

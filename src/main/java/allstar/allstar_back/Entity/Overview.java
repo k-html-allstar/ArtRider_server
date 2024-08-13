@@ -34,5 +34,5 @@ public class Overview {
 
     @ManyToOne
     @JoinColumn(name = "mission_id", nullable = false)
-    private MissionLevel missionLevel;
+    private Mission missionLevel;
 }

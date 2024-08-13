@@ -7,6 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class MissionDTO {
     private Long id;
+    private String missionLevel;
     private String missionName;
     private String s3url;
 }

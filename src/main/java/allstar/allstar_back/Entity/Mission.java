@@ -12,12 +12,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Table(name = "Mission_Level")
-public class MissionLevel {
+public class Mission {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "mission_id")
     private Long id;
 
+    private String missionLevel; // easy, medium, hard
     private String missionTitle;
     private String s3url;
 }
