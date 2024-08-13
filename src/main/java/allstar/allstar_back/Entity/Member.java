@@ -13,8 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "member")
-public class Member extends BaseEntity {
+@Table(name = "Member")
+public class Member{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_id")
