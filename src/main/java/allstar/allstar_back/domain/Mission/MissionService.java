@@ -14,7 +14,6 @@ public class MissionService {
 
     public List<MissionDTO> getAllMissions() {
         return missionRepository.findAll().stream().map(mission -> new MissionDTO(
-                mission.getId(),
                 mission.getMissionLevel(),
                 mission.getMissionTitle(),
                 mission.getS3url()

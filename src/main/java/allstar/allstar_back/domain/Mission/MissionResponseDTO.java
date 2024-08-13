@@ -9,5 +9,5 @@ import java.util.List;
 @Setter
 public class MissionResponseDTO {
     private String missionTitle;           // Mission name
-    private List<List<Double>> coordinates;
+    private List<CoordinateDTO> coordinates;
 }
