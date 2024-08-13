@@ -33,6 +33,11 @@ public class KakaoInfoResponse implements OAuthInfoResponse {
     }
 
     @Override
+    public String getNickname() {
+        return kakaoAccount.profile.nickname;
+    }
+
+    @Override
     public Member.OAuthProvider getOAuthProvider() {
         return Member.OAuthProvider.KAKAO;
     }

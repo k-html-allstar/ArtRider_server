@@ -43,6 +43,7 @@ public class OAuthLoginService {
             Member member = Member.builder() // 새로운 Member 객체를 빌더 패턴을 사용하여 생성
                     .email(oAuthInfoResponse.getEmail())
                     .oAuthProvider(oAuthInfoResponse.getOAuthProvider())
+                    .nickname(oAuthInfoResponse.getNickname())
                     .build();
 
             Member savedMember = memberRepository.save(member);
